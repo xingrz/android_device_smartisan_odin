@@ -82,7 +82,7 @@ start_msm_irqbalance_8939()
 {
 	if [ -f /system/bin/msm_irqbalance ]; then
 		case "$platformid" in
-		    "239" | "293" | "294" | "295" | "304" | "313" | "338")
+		    "239" | "293" | "294" | "295" | "304" | "313")
 			start msm_irqbalance;;
 		esac
 	fi
@@ -102,6 +102,14 @@ start_copying_prebuilt_qcril_db()
         chown -h radio.radio /data/misc/radio/qcril.db
     fi
 }
+
+start_change_hwinfo_permission()
+{
+    chmod 0400 /sys/hwinfo/*
+    chown system:system /sys/hwinfo/*
+}
+
+start_change_hwinfo_permission
 
 baseband=`getprop ro.baseband`
 echo 1 > /proc/sys/net/ipv6/conf/default/accept_ra_defrtr
@@ -289,13 +297,13 @@ case "$target" in
              hw_platform=`cat /sys/devices/system/soc/soc0/hw_platform`
         fi
         case "$soc_id" in
-             "293" | "304" | "338" )
+             "293" | "304" )
                   case "$hw_platform" in
                        "Surf")
                                     setprop qemu.hw.mainkeys 0
                                     ;;
                        "MTP")
-                                    setprop qemu.hw.mainkeys 0
+                                    #setprop qemu.hw.mainkeys 0
                                     ;;
                        "RCM")
                                     setprop qemu.hw.mainkeys 0
@@ -333,6 +341,10 @@ if [ ! -f /firmware/verinfo/ver_info.txt -o "$prev_version_info" != "$cur_versio
 fi
 cp /firmware/image/modem_pr/mbn_ota.txt /data/misc/radio/modem_config
 chown radio.radio /data/misc/radio/modem_config/mbn_ota.txt
+# SMARTISAN_BEGIN (0143223:Support loading carrier mbn by product type)
+cp /firmware/image/modem_pr/mbn_ota1.txt /data/misc/radio/modem_config
+chown radio.radio /data/misc/radio/modem_config/mbn_ota1.txt
+# SMARTISAN_END  (0143223:Support loading carrier mbn by product type)
 echo 1 > /data/misc/radio/copy_complete
 
 #check build variant for printk logging

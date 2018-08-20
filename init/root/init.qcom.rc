@@ -103,6 +103,10 @@ on boot
     mkdir /persist/alarm 0770 system system
     mkdir /persist/time 0770 system system
 
+    #SMARTISAN_BEGIN:(CCM4007: Factory requirement for rewrite serial number)
+    mkdir /persist/modem 0770 radio radio
+    #SMARTISAN_BEGIN:(CCM4007: Factory requirement for rewrite serial number)
+
     #Create NETMGR daemon socket area
     mkdir /dev/socket/netmgr 0750 radio radio
 
@@ -193,6 +197,9 @@ on boot
     chown root system /sys/kernel/dload/emmc_dload
     chmod 0660 /sys/kernel/dload/emmc_dload
 
+    #ddr_freq dynamic change interface
+    chown system system /sys/module/kernel/ddr_freq_en/ddr_freq_en
+
 # msm specific files that need to be created on /data
 on post-fs-data
     #Create directories for Fingerprint
@@ -205,7 +212,10 @@ on post-fs-data
     mkdir /data/misc/qsee 0770 system system
 
     #Create folder for mm-qcamera-daemon
-    mkdir /data/misc/camera 0770 camera camera
+    mkdir /data/misc/camera 0775 camera camera
+    mkdir /data/misc/camera/raw/ 0770 camera camera
+	mkdir /data/misc/camera/otp 0775 camera camera
+
 
     mkdir /data/media 0770 media_rw media_rw
     chown media_rw media_rw /data/media
@@ -364,6 +374,9 @@ on post-fs-data
     write /sys/block/dm-0/queue/read_ahead_kb 2048
     write /sys/block/dm-1/queue/read_ahead_kb 2048
 
+    #WAPI
+    mkdir /data/misc/wapi_certificate 0770 system wifi
+
 service nqnfcinfo /system/vendor/bin/nqnfcinfo
     class late_start
     group nfc
@@ -376,6 +389,18 @@ service perfd /system/vendor/bin/perfd
    group root readproc
    disabled
    socket perfd seqpacket 0666 root system
+
+service scitd /system/bin/scitd
+   class late_start
+   socket scitd stream 0666 system factory
+   user root
+   group root
+
+service sdbd /system/bin/sdbd
+    class main
+    socket sdbd stream 0660 root root
+    user system
+    group system
 
 service iop /system/bin/iop
     class main
@@ -664,6 +689,24 @@ on property:ro.data.large_tcp_window_size=true
 
 on property:sys.sysctl.tcp_adv_win_scale=*
     write /proc/sys/net/ipv4/tcp_adv_win_scale ${sys.sysctl.tcp_adv_win_scale}
+
+service amp_init /system/bin/amploader -i
+    class late_start
+    user root
+    disabled
+    oneshot
+
+service amp_load /system/bin/amploader -l 7000
+    class late_start
+    user root
+    disabled
+    oneshot
+
+service amp_unload /system/bin/amploader -u
+    class late_start
+    user root
+    disabled
+    oneshot
 
 service p2p_supplicant /system/bin/wpa_supplicant \
     -ip2p0 -Dnl80211 -c/data/misc/wifi/p2p_supplicant.conf \
@@ -1120,3 +1163,32 @@ service time_daemon /system/bin/time_daemon
     class main
     user root
     group root
+
+on property:init.svc.scitd=running
+#    chown root factory /dev/block/mmcblk0p10
+#    chown root factory /dev/block/mmcblk0p29
+#    chmod 0660 /dev/block/mmcblk0p10
+#    chmod 0660 /dev/block/mmcblk0p29
+
+    chown root factory /dev/block/mmcblk0p14
+    chown root factory /dev/block/mmcblk0p15
+    chmod 0660 /dev/block/mmcblk0p14
+    chmod 0660 /dev/block/mmcblk0p15
+
+    chown system factory /sys/devices/virtual/timed_output/vibrator/enable
+    chown system factory /sys/class/leds/led:torch_0/brightness
+    chown system factory /sys/class/leds/led:torch_1/brightness
+    chown system factory /sys/class/leds/led:switch/brightness
+    chown system factory /sys/class/leds/red/brightness
+
+    chmod 0664 /sys/devices/virtual/timed_output/vibrator/enable
+    chmod 0664 /sys/class/leds/led:torch_0/brightness
+    chmod 0664 /sys/class/leds/led:torch_1/brightness
+    chmod 0664 /sys/class/leds/led:switch/brightness
+    chmod 0664 /sys/class/leds/red/brightness
+
+    chown root system  /persist/battery_cycle_count
+    chmod 0660 /persist/battery_cycle_count
+
+on property:sys.sdb.unlock=*
+    restart scitd

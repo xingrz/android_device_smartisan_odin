@@ -41,6 +41,8 @@ on fs
     mount_all fstab.qcom
     write /proc/sys/vm/swappiness 100
 
+    start time_daemon
+
     # Keeping following partitions outside fstab file. As user may not have
     # these partition flashed on the device. Failure to mount any partition in fstab file
     # results in failure to launch late-start class.
@@ -80,6 +82,20 @@ service qcamerasvr /system/bin/mm-qcamera-daemon
     class late_start
     user camera
     group camera system inet input graphics
+
+service fingerprintd /system/bin/fingerprintd
+    class late_start
+    user system
+    group system input
+    socket idex stream 0660 system system
+
+service gx_fpd /system/bin/gx_fpd
+    user root
+    group root system input
+    disabled
+
+on property:ro.boot.fingerprint.id=goodix
+    start gx_fpd
 
 on init
    write /sys/module/qpnp_rtc/parameters/poweron_alarm 1
@@ -158,6 +174,9 @@ on boot
     chown system drmrpc /sys/devices/soc.0/78b7000.i2c/i2c-3/3-0020/input/input0/secure_touch
     chown system drmrpc /sys/devices/soc.0/78b8000.i2c/i2c-4/4-0020/input/input0/secure_touch_enable
     chown system drmrpc /sys/devices/soc.0/78b8000.i2c/i2c-4/4-0020/input/input0/secure_touch
+	chmod 0666 /sys/class/graphics/fb0/msm_fb_ie_level
+	chown system input /sys/devices/virtual/input/cb_fingerprint/job_cancel
+	chown system input /sys/devices/virtual/input/cb_fingerprint/hw_reset
 
 service wcnss-service /system/bin/wcnss_service
     class main
@@ -291,6 +310,11 @@ service mdtpd /system/vendor/bin/mdtpd
     class late_start
     user root
     group system radio drmrpc
+
+service ifaad /system/bin/ifaad
+    class late_start
+    user  system
+    group system
 
 on boot
     write /sys/devices/soc.0/78b8000.i2c/i2c-4/4-0020/input/input0/fw_name PR1702898-s3528t_00260005_00380008.img

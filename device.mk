@@ -51,6 +51,10 @@ PRODUCT_COPY_FILES += \
 
 # Camera
 PRODUCT_PACKAGES += \
+    camera.msm8953 \
+    libmmcamera_interface \
+    libmmjpeg_interface \
+    libqomx_core \
     libshim_camera
 
 # Fingerprint

@@ -13,10 +13,10 @@ vendor/lib/rfsa/adsp/libscveT2T_skel.so
 vendor/lib/rfsa/adsp/libscveTextReco_skel.so
 
 # Audio
-lib/hw/audio.primary.msm8953.so
+lib/hw/audio.primary.msm8953.so:vendor/lib/hw/audio.primary.msm8953.so
 lib/libaudioroute.so
 lib/libtinycompress.so
-lib64/hw/audio.primary.msm8953.so
+lib64/hw/audio.primary.msm8953.so:vendor/lib64/hw/audio.primary.msm8953.so
 lib64/libaudioroute.so
 lib64/libtinycompress.so
 
@@ -30,20 +30,20 @@ etc/acdbdata/MTP/MTP_Headset_cal.acdb
 etc/acdbdata/MTP/MTP_Speaker_cal.acdb
 
 # Camera
-bin/mm-qcamera-daemon
-lib/hw/camera.msm8953.so
-lib/libalColorMono.so
-lib/libalRnB.so
-lib/libalSDE2.so
-lib/libarcsoft_beautyshot.so
-lib/libarcsoft_low_light_shot.so
-lib/libarcsoft_smart_denoise.so
-lib/libmm-qcamera.so
-lib/libmmcamera_interface.so
-lib/libmmjpeg_interface.so
-lib/libmpbase.so
-lib/libqomx_core.so
-lib/libtt_panorama.so
+bin/mm-qcamera-daemon:vendor/bin/mm-qcamera-daemon
+lib/hw/camera.msm8953.so:vendor/lib/hw/camera.msm8953.so
+lib/libalColorMono.so:vendor/lib/libalColorMono.so
+lib/libalRnB.so:vendor/lib/libalRnB.so
+lib/libalSDE2.so:vendor/lib/libalSDE2.so
+lib/libarcsoft_beautyshot.so:vendor/lib/libarcsoft_beautyshot.so
+lib/libarcsoft_low_light_shot.so:vendor/lib/libarcsoft_low_light_shot.so
+lib/libarcsoft_smart_denoise.so:vendor/lib/libarcsoft_smart_denoise.so
+lib/libmm-qcamera.so:vendor/lib/libmm-qcamera.so
+lib/libmmcamera_interface.so:vendor/lib/libmmcamera_interface.so
+lib/libmmjpeg_interface.so:vendor/lib/libmmjpeg_interface.so
+lib/libmpbase.so:vendor/lib/libmpbase.so
+lib/libqomx_core.so:vendor/lib/libqomx_core.so
+lib/libtt_panorama.so:vendor/lib/libtt_panorama.so
 vendor/lib/libAltek_AF.so
 vendor/lib/libChamomilePA.so
 vendor/lib/libHAFIAFalSDE1.so
@@ -485,19 +485,19 @@ vendor/lib/libchromatix_s5k3p3st_snapshot.so
 vendor/lib/libchromatix_s5k3p3st_snapshot_scale.so
 
 # Camera configs
-etc/camera/csidtg_camera.xml
-etc/camera/csidtg_chromatix.xml
-etc/camera/imx258_chromatix.xml
-etc/camera/imx258_mono_chromatix.xml
-etc/camera/ov13855_f13v08b_chromatix.xml
-etc/camera/ov13855_mono_sunny_chromatix.xml
-etc/camera/ov13855_sunny_chromatix.xml
-etc/camera/ov8856_chromatix.xml
-etc/camera/ov8856_qtech_chromatix.xml
-etc/camera/s5k3l8_chromatix.xml
-etc/camera/s5k3l8_mono_chromatix.xml
-etc/camera/s5k3p3st_chromatix.xml
-etc/camera/s5k3p3st_qtech_chromatix.xml
+etc/camera/csidtg_camera.xml:vendor/etc/camera/csidtg_camera.xml
+etc/camera/csidtg_chromatix.xml:vendor/etc/camera/csidtg_chromatix.xml
+etc/camera/imx258_chromatix.xml:vendor/etc/camera/imx258_chromatix.xml
+etc/camera/imx258_mono_chromatix.xml:vendor/etc/camera/imx258_mono_chromatix.xml
+etc/camera/ov13855_f13v08b_chromatix.xml:vendor/etc/camera/ov13855_f13v08b_chromatix.xml
+etc/camera/ov13855_mono_sunny_chromatix.xml:vendor/etc/camera/ov13855_mono_sunny_chromatix.xml
+etc/camera/ov13855_sunny_chromatix.xml:vendor/etc/camera/ov13855_sunny_chromatix.xml
+etc/camera/ov8856_chromatix.xml:vendor/etc/camera/ov8856_chromatix.xml
+etc/camera/ov8856_qtech_chromatix.xml:vendor/etc/camera/ov8856_qtech_chromatix.xml
+etc/camera/s5k3l8_chromatix.xml:vendor/etc/camera/s5k3l8_chromatix.xml
+etc/camera/s5k3l8_mono_chromatix.xml:vendor/etc/camera/s5k3l8_mono_chromatix.xml
+etc/camera/s5k3p3st_chromatix.xml:vendor/etc/camera/s5k3p3st_chromatix.xml
+etc/camera/s5k3p3st_qtech_chromatix.xml:vendor/etc/camera/s5k3p3st_qtech_chromatix.xml
 
 # Camera firmware
 etc/firmware/cpp_firmware_v1_1_1.fw
@@ -512,17 +512,17 @@ etc/firmware/cpp_firmware_v1_10_0.fw
 etc/firmware/cpp_firmware_v1_12_0.fw
 
 # Fingerprint
-bin/fingerprintd
-lib64/hw/fingerprint.default.so
+bin/fingerprintd:vendor/bin/fingerprintd
+lib64/hw/fingerprint.default.so:vendor/lib64/hw/fingerprint.default.so
 
 # Fingerprint - Goodix
-bin/gx_fpd
-lib64/hw/gxfingerprint.default.so
-lib64/libfp_client.so
-lib64/libfpservice.so
+bin/gx_fpd:vendor/bin/gx_fpd
+lib64/hw/gxfingerprint.default.so:vendor/lib64/hw/gxfingerprint.default.so
+lib64/libfp_client.so:vendor/lib64/libfp_client.so
+lib64/libfpservice.so:vendor/lib64/libfpservice.so
 
 # Fingerprint - Idex
-lib64/hw/idex_fingerprint.msm8953.so
+lib64/hw/idex_fingerprint.msm8953.so:vendor/lib64/hw/idex_fingerprint.msm8953.so
 
 # Fingerprint firmware - Goodix
 etc/firmware/goodixfp.b00

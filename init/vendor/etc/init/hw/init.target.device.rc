@@ -3,12 +3,12 @@ on post-fs-data
     mkdir /data/misc/camera/raw/ 0770 camera camera
     mkdir /data/misc/camera/otp/ 0775 camera camera
 
-service fingerprintd /system/bin/fingerprintd
+service fingerprintd /vendor/bin/fingerprintd
     class late_start
     user system
     group system input
 
-service gx_fpd /system/bin/gx_fpd
+service gx_fpd /vendor/bin/gx_fpd
     user root
     group root system input
     disabled

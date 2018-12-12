@@ -1,0 +1,17 @@
+on post-fs-data
+    mkdir /data/misc/camera 0775 camera camera
+    mkdir /data/misc/camera/raw/ 0770 camera camera
+    mkdir /data/misc/camera/otp/ 0775 camera camera
+
+service fingerprintd /system/bin/fingerprintd
+    class late_start
+    user system
+    group system input
+
+service gx_fpd /system/bin/gx_fpd
+    user root
+    group root system input
+    disabled
+
+on property:ro.boot.fingerprint.id=goodix
+    start gx_fpd

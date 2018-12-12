@@ -993,7 +993,6 @@
 
     <path name="speaker">
         <ctl name="RX3 MIX1 INP1" value="RX1" />
-        <ctl name="SPK" value="Switch" />
     </path>
 
     <path name="speaker-and-hdmi">
@@ -1028,7 +1027,7 @@
     </path>
 
    <path name="speaker-mic">
-        <path name="adc1" />
+        <path name="adc3" />
         <ctl name="IIR1 INP1 MUX" value="DEC1" />
    </path>
 
@@ -1042,6 +1041,7 @@
 
     <path name="handset-mic">
         <path name="adc1" />
+        <ctl name="ADC1 Volume" value="6" />
         <ctl name="IIR1 INP1 MUX" value="DEC1" />
     </path>
 
@@ -1050,8 +1050,8 @@
         <ctl name="RX1 MIX1 INP1" value="RX1" />
         <ctl name="RX2 MIX1 INP1" value="RX2" />
         <ctl name="RX HPH Mode" value="HD2" />
-        <ctl name="COMP0 RX1" value="1" />
-        <ctl name="COMP0 RX2" value="1" />
+        <ctl name="COMP0 RX1" value="0" />
+        <ctl name="COMP0 RX2" value="0" />
         <ctl name="RDAC2 MUX" value="RX2" />
         <ctl name="HPHL" value="Switch" />
         <ctl name="HPHR" value="Switch" />
@@ -1078,10 +1078,6 @@
     </path>
 
     <path name="sidetone-headphones">
-        <path name="sidetone-iir" />
-        <ctl name="RX1 MIX2 INP1" value="IIR1" />
-        <ctl name="RX2 MIX2 INP1" value="IIR1" />
-        <ctl name="IIR1 INP1 Volume" value="53" />
     </path>
 
 
@@ -1110,8 +1106,20 @@
     </path>
 
     <path name="speaker-and-headphones">
-        <path name="speaker" />
-        <path name="headphones" />
+        <ctl name="RX3 MIX1 INP1" value="RX1" />
+        <ctl name="RX3 Digital Volume" value="80" />
+        <ctl name="LINE_OUT" value="Switch" />
+        <ctl name="MI2S_RX Channels" value="Two" />
+        <ctl name="RX1 MIX1 INP1" value="RX1" />
+        <ctl name="RX1 Digital Volume" value="60" />
+        <ctl name="RX2 MIX1 INP1" value="RX2" />
+        <ctl name="RX2 Digital Volume" value="60" />
+        <ctl name="RX HPH Mode" value="HD2" />
+        <ctl name="COMP0 RX1" value="0" />
+        <ctl name="COMP0 RX2" value="0" />
+        <ctl name="RDAC2 MUX" value="RX2" />
+        <ctl name="HPHL" value="Switch" />
+        <ctl name="HPHR" value="Switch" />
     </path>
 
     <path name="wsa-speaker-and-headphones">
@@ -1166,6 +1174,7 @@
     <!-- Dual MIC devices -->
     <path name="speaker-dmic-endfire">
         <path name="adc1" />
+        <ctl name="ADC1 Volume" value="6" />
         <ctl name="ADC3 Volume" value="6" />
         <ctl name="DEC2 MUX" value="ADC2" />
         <ctl name="MI2S_TX Channels" value="Two" />

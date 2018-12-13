@@ -18,3 +18,8 @@
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.nfc.port=I2C \
     ro.hardware.nfc_nci=nqx.default \
+
+# Radio
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.telephony.default_network=22 \
+    persist.nfc.smartcard.config=SIM1,eSE1 \

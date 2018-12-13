@@ -1,3 +1,7 @@
 # NFC
 ro.nfc.port=I2C
 ro.hardware.nfc_nci=nqx.default
+
+# Radio
+persist.nfc.smartcard.config=SIM1,eSE1
+ro.telephony.default_network=22

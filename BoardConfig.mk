@@ -39,6 +39,10 @@ BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(DEVICE_PATH)/bluetooth
 TARGET_LD_SHIM_LIBS += /system/vendor/lib/hw/camera.msm8953.so|/system/vendor/lib/libshim_camera.so
 TARGET_LD_SHIM_LIBS += /system/vendor/lib/libmmcamera_ppeiscore.so|/system/vendor/lib/libshim_camera.so
 
+# Init
+TARGET_INIT_VENDOR_LIB := libinit_odin
+TARGET_RECOVERY_DEVICE_MODULES := libinit_odin
+
 # MK Hardware
 BOARD_HARDWARE_CLASS += $(DEVICE_PATH)/mkhw
 

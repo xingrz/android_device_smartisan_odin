@@ -42,5 +42,10 @@ TARGET_LD_SHIM_LIBS += /system/vendor/lib/libmmcamera_ppeiscore.so|/system/vendo
 # MK Hardware
 BOARD_HARDWARE_CLASS += $(DEVICE_PATH)/mkhw
 
+# NFC
+TARGET_USES_NQ_NFC := true
+BOARD_NFC_CHIPSET := pn548
+BOARD_NFC_HAL_SUFFIX := $(TARGET_BOARD_PLATFORM)
+
 # inherit from the proprietary version
 -include vendor/smartisan/odin/BoardConfigVendor.mk

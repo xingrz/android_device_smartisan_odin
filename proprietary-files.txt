@@ -554,6 +554,9 @@ etc/firmware/a530_gpmu.fw2:vendor/firmware/a530_gpmu.fw2
 etc/firmware/a530_pfp.fw:vendor/firmware/a530_pfp.fw
 etc/firmware/a530_pm4.fw:vendor/firmware/a530_pm4.fw
 
+# NFC firmware
+vendor/firmware/libpn548ad_fw.so
+
 # Sensors
 etc/sensors/hals.conf:vendor/etc/sensors/hals.conf
 etc/sensors/sensor_def_qcomdev.conf:vendor/etc/sensors/sensor_def_qcomdev.conf

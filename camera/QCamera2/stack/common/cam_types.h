@@ -1518,6 +1518,7 @@ typedef struct {
     int32_t est_snap_iso_value;
     uint32_t est_snap_luma;
     uint32_t est_snap_target;
+    volatile char smartisan_reserved[16];
 } cam_3a_params_t;
 
 typedef struct {
@@ -1538,6 +1539,7 @@ typedef struct {
     int32_t cct_value;
     cam_awb_gain_t rgb_gains;
     cam_awb_ccm_update_t ccm_update;
+    volatile char smartisan_reserved[4];
 } cam_awb_params_t;
 
 typedef struct {

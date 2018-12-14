@@ -23,6 +23,8 @@ LOCAL_C_INCLUDES := \
     frameworks/native/include
 
 LOCAL_SHARED_LIBRARIES := \
+    liblog \
+    libutils \
     libgui \
     libui
 

@@ -1,3 +1,8 @@
+# Audio
+media.stagefright.audio.sink=280
+ro.vendor.audio.sdk.fluencetype=fluence
+vendor.audio.offload.multiple.enabled=true
+
 # NFC
 ro.nfc.port=I2C
 ro.hardware.nfc_nci=nqx.default

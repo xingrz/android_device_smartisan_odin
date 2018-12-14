@@ -14,6 +14,12 @@
 # limitations under the License.
 #
 
+# Audio
+PRODUCT_PROPERTY_OVERRIDES += \
+    media.stagefright.audio.sink=280 \
+    ro.vendor.audio.sdk.fluencetype=fluence \
+    vendor.audio.offload.multiple.enabled=true \
+
 # NFC
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.nfc.port=I2C \

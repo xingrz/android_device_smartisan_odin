@@ -169,6 +169,7 @@ vendor/lib/libqomx_jpegenc.so
 vendor/lib/libqomx_jpegenc_pipe.so
 vendor/lib/libremosaic_daemon.so
 vendor/lib/libseemore.so
+vendor/lib/libsmartcam_asb.so
 vendor/lib/libtrueportrait.so
 vendor/lib/libubifocus.so
 

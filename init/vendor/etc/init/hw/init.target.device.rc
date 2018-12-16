@@ -3,11 +3,6 @@ on post-fs-data
     mkdir /data/misc/camera/raw/ 0770 camera camera
     mkdir /data/misc/camera/otp/ 0775 camera camera
 
-service fingerprintd /vendor/bin/fingerprintd
-    class late_start
-    user system
-    group system input
-
 service gx_fpd /vendor/bin/gx_fpd
     user root
     group root system input
@@ -15,3 +10,6 @@ service gx_fpd /vendor/bin/gx_fpd
 
 on property:ro.boot.fingerprint.id=goodix
     start gx_fpd
+
+on property:ro.boot.fingerprint.id=*
+    setprop ro.hardware.fingerprint ${ro.boot.fingerprint.id}

@@ -503,18 +503,15 @@ etc/firmware/cpp_firmware_v1_8_0.fw
 etc/firmware/cpp_firmware_v1_10_0.fw
 etc/firmware/cpp_firmware_v1_12_0.fw
 
-# Fingerprint
-bin/fingerprintd:vendor/bin/fingerprintd
-lib64/hw/fingerprint.default.so:vendor/lib64/hw/fingerprint.default.so
-
 # Fingerprint - Goodix
 bin/gx_fpd:vendor/bin/gx_fpd
+lib64/hw/fingerprint.default.so:vendor/lib64/hw/fingerprint.goodix.so
 lib64/hw/gxfingerprint.default.so:vendor/lib64/hw/gxfingerprint.default.so
 lib64/libfp_client.so:vendor/lib64/libfp_client.so
 lib64/libfpservice.so:vendor/lib64/libfpservice.so
 
 # Fingerprint - Idex
-lib64/hw/idex_fingerprint.msm8953.so:vendor/lib64/hw/idex_fingerprint.msm8953.so
+lib64/hw/idex_fingerprint.msm8953.so:vendor/lib64/hw/fingerprint.idex.so
 
 # Fingerprint firmware - Goodix
 etc/firmware/goodixfp.b00

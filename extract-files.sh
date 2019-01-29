@@ -32,7 +32,6 @@ MK_ROOT="$MY_DIR"/../../..
 BLOB_ROOT="$MK_ROOT"/vendor/"$VENDOR"/"$DEVICE"/proprietary
 
 # Camera
-sed -i 's|/system/etc/|/vendor/etc/|g' $BLOB_ROOT/vendor/lib/hw/camera.msm8953.so
 sed -i 's|/system/etc/|/vendor/etc/|g' $BLOB_ROOT/vendor/lib/libmmcamera2_sensor_modules.so
 
 # Fingerprint - Idex

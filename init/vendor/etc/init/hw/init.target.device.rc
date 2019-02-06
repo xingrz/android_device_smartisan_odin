@@ -1,7 +1,5 @@
 on post-fs-data
-    mkdir /data/misc/camera 0775 camera camera
-    mkdir /data/misc/camera/raw/ 0770 camera camera
-    mkdir /data/misc/camera/otp/ 0775 camera camera
+    mkdir /data/vendor/qcam/otp/ 0775 camera camera
 
 service gx_fpd /vendor/bin/gx_fpd
     user root

@@ -839,6 +839,8 @@ typedef struct {
     INCLUDE(CAM_INTF_META_LENS_FOCAL_LENGTH,            float,                       1);
     INCLUDE(CAM_INTF_META_LENS_FOCUS_DISTANCE,          float,                       1);
     INCLUDE(CAM_INTF_META_FOCUS_VALUE,                  float,                       1);
+    INCLUDE(SMARTISAN_07,                               uint64_t,                    1);
+    INCLUDE(SMARTISAN_08,                               uint32_t,                    1);
     INCLUDE(CAM_INTF_META_SPOT_LIGHT_DETECT,            uint8_t,                     1);
     INCLUDE(CAM_INTF_META_LENS_FOCUS_RANGE,             float,                       2);
     INCLUDE(CAM_INTF_META_LENS_STATE,                   cam_af_lens_state_t,         1);
@@ -1013,6 +1015,13 @@ typedef struct {
     INCLUDE(CAM_INTF_PARM_JPEG_ENCODE_CROP,             cam_stream_crop_info_t,      1);
     INCLUDE(CAM_INTF_PARM_JPEG_SCALE_DIMENSION,         cam_dimension_t,             1);
     INCLUDE(CAM_INTF_META_FOCUS_DEPTH_INFO,             uint8_t,                     1);
+    INCLUDE(SMARTISAN_03,                               uint8_t,                     1);
+    INCLUDE(SMARTISAN_04,                               uint8_t,                     1);
+    INCLUDE(SMARTISAN_05,                               uint32_t,                    1);
+    INCLUDE(SMARTISAN_02,                               uint8_t,                     1);
+    INCLUDE(SMARTISAN_01,                               uint32_t,                    1);
+    INCLUDE(SMARTISAN_06,                               uint32_t,                    1);
+    INCLUDE(SMARTISAN_09,                               uint8_t,                     1);
 } metadata_data_t;
 
 /* Update clear_metadata_buffer() function when a new is_xxx_valid is added to

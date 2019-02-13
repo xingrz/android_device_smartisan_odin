@@ -239,6 +239,8 @@ typedef struct{
     float min_focus_pos[CAM_MANUAL_FOCUS_MODE_MAX];
     float max_focus_pos[CAM_MANUAL_FOCUS_MODE_MAX];
 
+    volatile char smartisan_reversed1[4];
+
     int32_t exposure_compensation_min;       /* min value of exposure compensation index */
     int32_t exposure_compensation_max;       /* max value of exposure compensation index */
     int32_t exposure_compensation_default;   /* default value of exposure compensation index */
@@ -557,6 +559,8 @@ typedef struct{
     cam_format_t supported_meta_raw_fmts[CAM_FORMAT_MAX];
     cam_dimension_t raw_meta_dim[MAX_SIZES_CNT];
     cam_sub_format_type_t sub_fmt[CAM_FORMAT_SUBTYPE_MAX];
+
+    volatile char smartisan_reversed2[8216];
 } cam_capability_t;
 
 typedef enum {

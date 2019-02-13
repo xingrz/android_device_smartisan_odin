@@ -7,6 +7,9 @@ vendor.audio.offload.multiple.enabled=true
 ro.nfc.port=I2C
 ro.hardware.nfc_nci=nqx.default
 
+# Camera
+persist.camera.HAL3.enabled=1
+
 # Radio
 persist.nfc.smartcard.config=SIM1,eSE1
 ro.telephony.default_network=22

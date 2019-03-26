@@ -21,5 +21,6 @@ if [[ $(cat /sys/hwinfo/version_id) =~ "version_id=advanced1:" ]]; then
   rm -f /system/vendor/etc/permissions/android.hardware.nfc.hcef.xml
   rm -f /system/vendor/etc/permissions/android.hardware.nfc.xml
   rm -f /system/vendor/etc/permissions/com.android.nfc_extras.xml
-  rm -f /system/vendor/etc/init/vendor.nxp.hardware.nfc@1.0-service.rc
+  rm -f /system/vendor/etc/permissions/com.nxp.mifare.xml
+  rm -f /system/vendor/etc/init/vendor.nxp.hardware.nfc@1.1-service.rc
 fi

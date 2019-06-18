@@ -20,11 +20,11 @@ PRODUCT_RELEASE_NAME := odin
 $(call inherit-product, build/target/product/embedded.mk)
 
 # Inherit from our custom product configuration
-$(call inherit-product, vendor/mk/config/common.mk)
+$(call inherit-product, vendor/omni/config/common.mk)
 
 ## Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := odin
-PRODUCT_NAME := mk_odin
+PRODUCT_NAME := omni_odin
 PRODUCT_BRAND := Smartisan
 PRODUCT_MODEL := OD105
 PRODUCT_MANUFACTURER := smartisan

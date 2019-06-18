@@ -15,4 +15,4 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/mk_odin.mk
+    $(LOCAL_DIR)/omni_odin.mk

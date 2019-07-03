@@ -1,3 +1,9 @@
+on post-fs-data
+    mkdir /data/system/users/0/fpdata 0700 system system
+    chmod 0700 /data/system/users/0/fpdata
+    chown system system /data/system/users/0/fpdata
+    restorecon_recursive /data/system/users/0/fpdata
+
 service vendor.fps_hal /vendor/bin/hw/android.hardware.biometrics.fingerprint@2.0-service.odin
     # "class hal" causes a race condition on some devices due to files created
     # in /data. As a workaround, postpone startup until later in boot once

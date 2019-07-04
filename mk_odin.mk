@@ -39,7 +39,7 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
     PRODUCT_NAME="odin" \
     PRIVATE_BUILD_DESC="odin-user 7.1.1 NMF26F 1 dev-keys"
 
-BUILD_FINGERPRINT := Rock/odin/odin:7.1.1/NMF26F/1547630572:user/dev-keys
+BUILD_FINGERPRINT := Rock/odin/odin:7.1.1/NMF26F/1560387925:user/dev-keys
 
 # Sign bootable images
 PRODUCT_SUPPORTS_BOOT_SIGNER := true

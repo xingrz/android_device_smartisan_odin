@@ -19,9 +19,7 @@ LOCAL_SHARED_LIBRARIES := \
     libutils \
     liblog \
     libhidlbase \
-    libhidltransport \
     libhardware \
-    libhwbinder \
     libkeystore_aidl \
     libkeystore_binder \
     android.hardware.biometrics.fingerprint@2.1

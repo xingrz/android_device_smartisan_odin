@@ -4,6 +4,12 @@ on post-fs-data
     chown system system /data/system/users/0/fpdata
     restorecon_recursive /data/system/users/0/fpdata
 
+on property:ro.boot.fingerprint.id=goodix
+    start gx_fpd
+
+on property:ro.boot.fingerprint.id=*
+    setprop ro.hardware.fingerprint ${ro.boot.fingerprint.id}
+
 service vendor.fps_hal /vendor/bin/hw/android.hardware.biometrics.fingerprint@2.0-service.odin
     # "class hal" causes a race condition on some devices due to files created
     # in /data. As a workaround, postpone startup until later in boot once
@@ -12,3 +18,8 @@ service vendor.fps_hal /vendor/bin/hw/android.hardware.biometrics.fingerprint@2.
     user system
     group system input
     writepid /dev/cpuset/system-background/tasks
+
+service gx_fpd /vendor/bin/gx_fpd
+    user root
+    group root system input
+    disabled

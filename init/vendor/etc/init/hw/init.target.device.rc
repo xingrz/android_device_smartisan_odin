@@ -1,13 +1,2 @@
 on post-fs-data
     mkdir /data/vendor/qcam/otp/ 0775 camera camera
-
-service gx_fpd /vendor/bin/gx_fpd
-    user root
-    group root system input
-    disabled
-
-on property:ro.boot.fingerprint.id=goodix
-    start gx_fpd
-
-on property:ro.boot.fingerprint.id=*
-    setprop ro.hardware.fingerprint ${ro.boot.fingerprint.id}

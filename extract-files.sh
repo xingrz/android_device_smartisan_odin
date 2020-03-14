@@ -53,5 +53,11 @@ sed -i 's|/data/misc/camera|/data/vendor/qcam|g' $BLOB_ROOT/vendor/lib/libmmcame
 sed -i 's|/data/misc/camera|/data/vendor/qcam|g' $BLOB_ROOT/vendor/lib/libmmcamera_tintless_bg_pca_algo.so
 sed -i 's|/data/misc/camera|/data/vendor/qcam|g' $BLOB_ROOT/vendor/lib/libmmcamera_tuning.so
 
+# Fingerprint - Goodix
+patchelf --replace-needed libbinder.so libbindergx.so "$BLOB_ROOT"/vendor/bin/gx_fpd
+patchelf --replace-needed libbinder.so libbindergx.so "$BLOB_ROOT"/vendor/lib64/hw/fingerprint.goodix.so
+patchelf --replace-needed libbinder.so libbindergx.so "$BLOB_ROOT"/vendor/lib64/libfp_client.so
+patchelf --replace-needed libbinder.so libbindergx.so "$BLOB_ROOT"/vendor/lib64/libfpservice.so
+
 # Fingerprint - Idex
 sed -i 's|idex_fingerprint\x00|fingerprint\x00\x00\x00\x00\x00\x00|g' $BLOB_ROOT/vendor/lib64/hw/fingerprint.idex.so

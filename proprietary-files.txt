@@ -504,6 +504,7 @@ lib64/hw/fingerprint.default.so:vendor/lib64/hw/fingerprint.goodix.so
 lib64/hw/gxfingerprint.default.so:vendor/lib64/hw/gxfingerprint.default.so
 lib64/libfp_client.so:vendor/lib64/libfp_client.so
 lib64/libfpservice.so:vendor/lib64/libfpservice.so
+vendor/lib64/libbindergx.so|eb676b92d13a7835aaab309d5c692151993e016f
 
 # Fingerprint - Idex
 lib64/hw/idex_fingerprint.msm8953.so:vendor/lib64/hw/fingerprint.idex.so

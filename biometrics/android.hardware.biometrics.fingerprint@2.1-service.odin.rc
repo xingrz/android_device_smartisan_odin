@@ -10,7 +10,7 @@ on property:ro.boot.fingerprint.id=goodix
 on property:ro.boot.fingerprint.id=*
     setprop ro.hardware.fingerprint ${ro.boot.fingerprint.id}
 
-service vendor.fps_hal /vendor/bin/hw/android.hardware.biometrics.fingerprint@2.0-service.odin
+service vendor.fps_hal /vendor/bin/hw/android.hardware.biometrics.fingerprint@2.1-service.odin
     # "class hal" causes a race condition on some devices due to files created
     # in /data. As a workaround, postpone startup until later in boot once
     # /data is mounted.

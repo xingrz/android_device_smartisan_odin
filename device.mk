@@ -62,7 +62,7 @@ PRODUCT_PACKAGES += \
 
 # Fingerprint
 PRODUCT_PACKAGES += \
-    android.hardware.biometrics.fingerprint@2.1-service.odin
+    android.hardware.biometrics.fingerprint@2.1
 
 # Init
 PRODUCT_COPY_FILES += \
